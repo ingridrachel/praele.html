@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Aniversário, Meu Amor 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ecf0f1;
+      text-align: center;
+      background-color: #000000;
+      padding: 0;
+    }
+
+    header {
+      padding: 60px 20px;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #e74c3c;
+      margin-bottom: 10px;
+    }
+
+    #diasJuntos {
+      font-size: 1em;
+      color: #f1c40f;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 800px;
+      margin: 20px auto;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .photos {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 10px 20px;
+    }
+
+    .photo-wrapper {
+      background-color: white;
+      padding: 10px;
+      border: 10px solid white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      border-radius: 5px;
+    }
+
+    .photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      transform: rotate(-5deg);
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover {
+      transform: rotate(0deg);
+    }
+
+    .cupons-container {
+      display: none;
+      margin-top: 50px;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cupon {
+      font-size: 1.2em;
+      color: #e74c3c;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #e74c3c;
+      color: white;
+      font-size: 1.2em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    footer {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 2px solid #e74c3c;
+      font-size: 1.1em;
+      color: #ecf0f1;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body onload="startSite()">
+
+  <audio id="romanticSong" autoplay loop>
+    <source src="musica.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <header>
+    <h1>Feliz Aniversário, meu Amor 💖</h1>
+    <div id="diasJuntos"></div>
+    <p>
+      Hoje é o seu dia, e eu quero celebrá-lo de um jeito especial. Porque desde que você entrou na minha vida, tudo ganhou mais cor, mais sentido e mais amor.
+      <br><br>
+      Estar com você é sentir o coração tranquilo, é sorrir com o olhar, é saber que tenho ao meu lado alguém que me completa em cada detalhe.
+      <br><br>
+      Neste aniversário, eu não só comemoro o seu nascimento, mas agradeço por cada momento que vivemos juntos — pelas risadas, pelos abraços demorados, pelas conversas que duram horas, e até pelos silêncios que dizem tudo.
+      <br><br>
+      Você é meu parceiro, meu melhor amigo, minha paz e minha pessoa favorita no mundo. Que este novo ano seja cheio de conquistas, sonhos realizados e muito amor — o nosso amor.
+      <br><br>
+      Eu te amo com todo o meu coração, hoje e sempre. Feliz aniversário, meu amor! 💖
+    </p>
+  </header>
+
+  <div class="photos">
+    <div class="photo-wrapper">
+      <img class="photo" src="foto1.jpeg" alt="Foto 1">
+    </div>
+    <div class="photo-wrapper">
+      <img class="photo" src="foto2.jpeg" alt="Foto 2">
+    </div>
+    <div class="photo-wrapper">
+      <img class="photo" src="foto3.jpeg" alt="Foto 3">
+    </div>
+    <div class="photo-wrapper">
+      <img class="photo" src="foto4.jpeg" alt="Foto 4">
+    </div>
+    <div class="photo-wrapper">
+      <img class="photo" src="foto5.jpeg" alt="Foto 5">
+    </div>
+  </div>
+
+  <button onclick="showCupons()">Cupons</button>
+
+  <div class="cupons-container" id="cuponsContainer">
+    <h2>Cupons Especiais ❤️</h2>
+    <ul class="cupon-list">
+      <li class="cupon">💆‍♀️ 1º Cupom: Tarde de mimos — você relaxa, eu cuido de tudo!</li>
+      <li class="cupon">🎬 2º Cupom: Filminho só nós dois — sua escolha, pipoca garantida.</li>
+      <li class="cupon">⏳ 3º Cupom: O meu tempo é seu — um dia inteirinho só para você!</li>
+      <li class="cupon">🍷 4º Cupom: Jantar romântico — com clima, vela e carinho.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Com todo o meu amor, sua namorada 💕
+  </footer>
+
+  <script>
+    function startSite() {
+      const audio = document.getElementById("romanticSong");
+      audio.play().catch(() => {
+        document.body.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
+
+      calcularDiasJuntos();
+    }
+
+    function calcularDiasJuntos() {
+      const dataInicio = new Date("2024-12-07");
+      const hoje = new Date();
+      const diffEmMilissegundos = hoje - dataInicio;
+      const dias = Math.floor(diffEmMilissegundos / (1000 * 60 * 60 * 24));
+
+      const elemento = document.getElementById("diasJuntos");
+      if (elemento) {
+        elemento.textContent = `Estamos juntos há ${dias} dias 💑`;
+      }
+    }
+
+    function showCupons() {
+      const cuponsContainer = document.getElementById("cuponsContainer");
+      cuponsContainer.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
